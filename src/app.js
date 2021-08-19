@@ -8,10 +8,9 @@ appInsights.setup(iKey).start();
 const app = express();
 const port = process.env.PORT;
 
-app.get('/', (req, res) => {
-    res.send('Hello World!');
-    console.log('Hello World!');
-});
+var indexRouter = require('./routes/index');
+
+app.use('/', indexRouter);
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}!`)
